@@ -1,0 +1,24 @@
+package it.sincrono.ecommerce.controller;
+
+import it.sincrono.ecommerce.entity.JwtRequest;
+import it.sincrono.ecommerce.entity.JwtResponse;
+import it.sincrono.ecommerce.service.JwtService;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.CrossOrigin;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RestController;
+
+@RestController
+@CrossOrigin
+public class JwtController {
+
+    @Autowired
+    private JwtService jwtService;
+
+    @PostMapping({"/autenticazione"})
+    public JwtResponse createJwtToken(@RequestBody JwtRequest jwtRequest) throws Exception {
+        return jwtService.createJwtToken(jwtRequest);
+    }
+}
