@@ -1,7 +1,7 @@
 package it.sincrono.ecommerce.service;
 
 import it.sincrono.ecommerce.entity.Role;
-import it.sincrono.ecommerce.repository.RoleDao;
+import it.sincrono.ecommerce.repository.RoleRepository;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -10,10 +10,9 @@ import org.springframework.stereotype.Service;
 public class RoleService {
 
     @Autowired
-    private RoleDao roleDao;
+    private RoleRepository roleRepository;
 
     public Role createNewRole(Role role) {
-        return roleDao.save(role);
+        return roleRepository.save(role);
     }
 }
-//ignora

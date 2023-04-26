@@ -6,5 +6,5 @@ import org.springframework.stereotype.Repository;
 import it.sincrono.ecommerce.entity.User;
 
 @Repository
-public interface UserDao extends CrudRepository<User, String> {
+public interface UserRepository extends CrudRepository<User, String> {
 }

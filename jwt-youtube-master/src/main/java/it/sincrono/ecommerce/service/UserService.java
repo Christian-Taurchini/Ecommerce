@@ -2,8 +2,8 @@ package it.sincrono.ecommerce.service;
 
 import it.sincrono.ecommerce.entity.Role;
 import it.sincrono.ecommerce.entity.User;
-import it.sincrono.ecommerce.repository.RoleDao;
-import it.sincrono.ecommerce.repository.UserDao;
+import it.sincrono.ecommerce.repository.RoleRepository;
+import it.sincrono.ecommerce.repository.UserRepository;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.password.PasswordEncoder;
@@ -16,10 +16,10 @@ import java.util.Set;
 public class UserService {
 
     @Autowired
-    private UserDao userDao;
+    private UserRepository userRepository;
 
     @Autowired
-    private RoleDao roleDao;
+    private RoleRepository roleRepository;
 
     @Autowired
     private PasswordEncoder passwordEncoder;
@@ -27,44 +27,46 @@ public class UserService {
     public void initRoleAndUser() {
 
         Role adminRole = new Role();
-        adminRole.setRoleName("Admin");
-        adminRole.setRoleDescription("Ruolo: Admin");
-        roleDao.save(adminRole);
+        adminRole.setNomeRuolo("Admin");
+        adminRole.setDescrizioneRuolo("Ruolo: Admin");
+        roleRepository.save(adminRole);
 
         Role userRole = new Role();
-        userRole.setRoleName("Utente");
-        userRole.setRoleDescription("Utente creato di e assegnato di default");
-        roleDao.save(userRole);
+        userRole.setNomeRuolo("Utente");
+        userRole.setDescrizioneRuolo("Utente creato di e assegnato di default");
+        roleRepository.save(userRole);
 
         User adminUser = new User();
-        adminUser.setUserName("Admin");
-        adminUser.setUserPassword(getEncodedPassword("sincrono"));
-        adminUser.setUserFirstName("admin");
-        adminUser.setUserLastName("admin");
+        adminUser.setNickname("Admin");
+        adminUser.setPassword(getEncodedPassword("sincrono"));
+        adminUser.setNome("admin");
+        adminUser.setCognome("admin");
+        adminUser.setEmail("admin@sincrono.it");
         Set<Role> adminRoles = new HashSet<>();
         adminRoles.add(adminRole);
         adminUser.setRole(adminRoles);
-        userDao.save(adminUser);
+        userRepository.save(adminUser);
 
-//        User user = new User();
-//        user.setUserName("raj123");
-//        user.setUserPassword(getEncodedPassword("raj@123"));
-//        user.setUserFirstName("raj");
-//        user.setUserLastName("sharma");
-//        Set<Role> userRoles = new HashSet<>();
-//        userRoles.add(userRole);
-//        user.setRole(userRoles);
-//        userDao.save(user);
+        User user = new User();
+        user.setNickname("Christian_Taurchini");
+        user.setPassword(getEncodedPassword("sincrono"));
+        user.setNome("Christian");
+        user.setCognome("Taurchini");
+        user.setEmail("chritau2001@gmail.com");
+        Set<Role> userRoles = new HashSet<>();
+        userRoles.add(userRole);
+        user.setRole(userRoles);
+        userRepository.save(user);
     }
 
     public User registerNewUser(User user) {
-        Role role = roleDao.findById("User").get();
+        Role role = roleRepository.findById("User").get();
         Set<Role> userRoles = new HashSet<>();
         userRoles.add(role);
         user.setRole(userRoles);
-        user.setUserPassword(getEncodedPassword(user.getUserPassword()));
+        user.setPassword(getEncodedPassword(user.getPassword()));
 
-        return userDao.save(user);
+        return userRepository.save(user);
     }
 
     public String getEncodedPassword(String password) {

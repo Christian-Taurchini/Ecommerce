@@ -6,6 +6,6 @@ import org.springframework.stereotype.Repository;
 import it.sincrono.ecommerce.entity.Role;
 
 @Repository
-public interface RoleDao extends CrudRepository<Role, String> {
+public interface RoleRepository extends CrudRepository<Role, String> {
 
 }

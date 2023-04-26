@@ -7,11 +7,12 @@ import java.util.Set;
 public class User {
 
     @Id
-    private String userName;
-    private String userFirstName;
-    private String userLastName;
-    private String userPassword;
+    private String nickname;
+    private String nome;
+    private String cognome;
     private String email;
+    private String password;
+    
     @ManyToMany(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
     @JoinTable(name = "USER_ROLE",
             joinColumns = {
@@ -22,36 +23,32 @@ public class User {
             }
     )
     private Set<Role> role;
+    
+    public String getNickname() {
+		return nickname;
+	}
 
-    public String getUserName() {
-        return userName;
-    }
+	public void setNickname(String nickname) {
+		this.nickname = nickname;
+	}
 
-    public void setUserName(String userName) {
-        this.userName = userName;
-    }
+	public String getNome() {
+		return nome;
+	}
 
-    public String getUserFirstName() {
-        return userFirstName;
-    }
+	public void setNome(String nome) {
+		this.nome = nome;
+	}
 
-    public void setUserFirstName(String userFirstName) {
-        this.userFirstName = userFirstName;
-    }
+	public String getCognome() {
+		return cognome;
+	}
 
-    public String getUserLastName() {
-        return userLastName;
-    }
+	public void setCognome(String cognome) {
+		this.cognome = cognome;
+	}
 
-    public void setUserLastName(String userLastName) {
-        this.userLastName = userLastName;
-    }
-
-    public String getUserPassword() {
-        return userPassword;
-    }
-
-    public String getEmail() {
+	public String getEmail() {
 		return email;
 	}
 
@@ -59,11 +56,15 @@ public class User {
 		this.email = email;
 	}
 
-	public void setUserPassword(String userPassword) {
-        this.userPassword = userPassword;
-    }
+	public String getPassword() {
+		return password;
+	}
 
-    public Set<Role> getRole() {
+	public void setPassword(String password) {
+		this.password = password;
+	}
+
+	public Set<Role> getRole() {
         return role;
     }
 
