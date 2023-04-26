@@ -22,7 +22,7 @@ public class UserController {
         userService.initRoleAndUser();
     }
 
-    @PostMapping({"/registra"})
+    @PostMapping({"/registerNewUser"})
     public User registerNewUser(@RequestBody User user) {
         return userService.registerNewUser(user);
     }
