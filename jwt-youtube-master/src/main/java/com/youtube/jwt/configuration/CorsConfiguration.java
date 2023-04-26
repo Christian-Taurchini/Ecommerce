@@ -27,4 +27,4 @@ public class CorsConfiguration {
         };
     }
 }
-//prova
+//prova errore
