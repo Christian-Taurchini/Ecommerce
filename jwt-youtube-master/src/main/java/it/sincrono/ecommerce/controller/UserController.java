@@ -35,7 +35,7 @@ public class UserController {
     }
 
     @GetMapping({"/home"})
-    @PreAuthorize("hasRole('User')")
+    @PreAuthorize("hasRole('Utente')")
     public String forUser(){
         return "Home Page Ecommerce";
     }
