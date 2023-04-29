@@ -10,14 +10,14 @@ public class Categoria {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private long idCategoria;
+	private Integer idCategoria;
 	private String nomeCategoria;
 	private String descrizioneCategoria;
 	
-	public long getIdCategoria() {
+	public Integer getIdCategoria() {
 		return idCategoria;
 	}
-	public void setIdCategoria(long idCategoria) {
+	public void setIdCategoria(Integer idCategoria) {
 		this.idCategoria = idCategoria;
 	}
 	public String getNomeCategoria() {
@@ -32,11 +32,5 @@ public class Categoria {
 	public void setDescrizioneCategoria(String descrizioneCategoria) {
 		this.descrizioneCategoria = descrizioneCategoria;
 	}
-	public int getCategoriaid() {
-		// TODO Auto-generated method stub
-		return 0;
-	}
-	
-	
 	
 }

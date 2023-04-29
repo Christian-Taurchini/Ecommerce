@@ -6,6 +6,6 @@ import org.springframework.stereotype.Repository;
 import it.sincrono.ecommerce.entity.Categoria;
 
 @Repository
-public interface CategoriaRepository extends CrudRepository<Categoria, Long>{
+public interface CategoriaRepository extends CrudRepository<Categoria, Integer>{
 
 }

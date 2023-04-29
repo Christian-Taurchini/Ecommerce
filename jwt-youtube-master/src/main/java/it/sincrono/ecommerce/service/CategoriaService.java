@@ -23,11 +23,11 @@ public class CategoriaService {
 		
 	}
 
-	public Categoria getCategoriaById(long idCategoria) {
+	public Categoria getCategoriaById(Integer idCategoria) {
 		return categoriaRepository.findById(idCategoria).get();  
 	}
 
-	public void delete(long idCategoria) {
+	public void delete(Integer idCategoria) {
 		categoriaRepository.deleteById(idCategoria); 
 	}
 
@@ -35,7 +35,7 @@ public class CategoriaService {
 		categoriaRepository.save(categoria); 	
 	}
 
-	public void update(Categoria categoria, int idCategoria)   
+	public void update(Categoria categoria, Integer idCategoria)   
 	{  
 		categoriaRepository.save(categoria);  
 	}  
