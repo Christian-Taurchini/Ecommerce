@@ -1,5 +1,7 @@
 package it.sincrono.ecommerce.entity;
 
+import java.util.Set;
+
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -13,6 +15,7 @@ public class Categoria {
 	private Integer idCategoria;
 	private String nomeCategoria;
 	private String descrizioneCategoria;
+	
 	
 	public Integer getIdCategoria() {
 		return idCategoria;
