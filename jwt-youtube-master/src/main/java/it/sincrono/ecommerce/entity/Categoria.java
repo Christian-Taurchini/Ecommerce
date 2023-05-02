@@ -1,9 +1,14 @@
 package it.sincrono.ecommerce.entity;
 
+
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+
+//Categoria = Marca della macchina
 
 @Entity
 public class Categoria {
