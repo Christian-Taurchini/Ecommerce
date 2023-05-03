@@ -22,4 +22,20 @@ public class ModelloService {
 		return modello;  
 	}
 
+	public Modello getModelloById(Integer idModello) {
+		return modelloRepository.findById(idModello).get();  
+	}
+
+	public void delete(Integer idModello) {
+		modelloRepository.deleteById(idModello); 
+	}
+
+	public void saveOrUpdate(Modello modello) {
+		modelloRepository.save(modello); 	
+	}
+
+	public void update(Modello modello, Integer idModello)   
+	{  
+		modelloRepository.save(modello);  
+	}  
 }
