@@ -30,6 +30,18 @@ public class Automobile {
 	@JoinColumn(name = "idModello")
 	private Modello modello;
 	
+	@OneToOne
+	@JoinColumn(name = "idMotore")
+	private Motore motore;
+	
+	@OneToOne
+	@JoinColumn(name = "idTrazione")
+	private Trazione trazione;
+	
+	@OneToOne
+	@JoinColumn(name = "idCambio")
+	private Cambio cambio;
+	
 	public int getNumeroPosti() {
 		return numeroPosti;
 	}
@@ -142,6 +154,27 @@ public class Automobile {
 		this.modello = modello;
 	}
 
-	
+	public Motore getMotore() {
+		return motore;
+	}
 
+	public void setMotore(Motore motore) {
+		this.motore = motore;
+	}
+
+	public Trazione getTrazione() {
+		return trazione;
+	}
+
+	public void setTrazione(Trazione trazione) {
+		this.trazione = trazione;
+	}
+
+	public Cambio getCambio() {
+		return cambio;
+	}
+
+	public void setCambio(Cambio cambio) {
+		this.cambio = cambio;
+	}
 }
