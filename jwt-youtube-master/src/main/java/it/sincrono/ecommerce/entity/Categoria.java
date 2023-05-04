@@ -9,6 +9,7 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.OneToMany;
+import javax.persistence.OneToOne;
 
 //Categoria = Marca della macchina
 
@@ -20,6 +21,7 @@ public class Categoria {
 	private Integer idCategoria;
 	private String nomeCategoria;
 	private String descrizioneCategoria;
+	private String linkImmagine;
 	
 	@OneToMany(cascade = CascadeType.ALL)
     @JoinColumn(name = "idCategoria", referencedColumnName = "idCategoria")
@@ -49,7 +51,11 @@ public class Categoria {
 	public void setModello(Set<Modello> modello) {
 		this.modello = modello;
 	}
-		
-	
-	
+	public String getLinkImmagine() {
+		return linkImmagine;
+	}
+	public void setLinkImmagine(String linkImmagine) {
+		this.linkImmagine = linkImmagine;
+	}
+
 }

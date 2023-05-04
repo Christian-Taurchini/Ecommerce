@@ -5,7 +5,6 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
-
 @Entity
 public class Modello {
 
@@ -13,7 +12,7 @@ public class Modello {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Integer idModello;
 	private String nomeModello;
-  
+	
 	public Integer getIdModello() {
 		return idModello;
 	}
@@ -26,7 +25,7 @@ public class Modello {
 	public void setNomeModello(String nomeModello) {
 		this.nomeModello = nomeModello;
 	}
-	
+  
 	
 	
 	
