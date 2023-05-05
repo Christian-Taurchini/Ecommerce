@@ -16,6 +16,8 @@ import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter;
 
+import static org.springframework.security.config.Customizer.withDefaults;
+
 @Configuration
 @EnableWebSecurity
 @EnableGlobalMethodSecurity(prePostEnabled = true)
@@ -38,9 +40,14 @@ public class WebSecurityConfiguration extends WebSecurityConfigurerAdapter {
 
     @Override
     protected void configure(HttpSecurity httpSecurity) throws Exception {
-        httpSecurity.cors();
+        httpSecurity.cors(withDefaults());
         httpSecurity.csrf().disable()
-                .authorizeRequests().antMatchers("/login", "/registrazione","/nuova/categoria","/nuovo/modello").permitAll()
+                .authorizeRequests().antMatchers("/login",
+                		"/registrazione",
+                		"/nuova/categoria",
+                		"/nuovo/modello",
+                		"/nuovo/cambio"
+                		).permitAll()
                 .antMatchers(HttpHeaders.ALLOW).permitAll()
                 .anyRequest().authenticated()
                 .and()
