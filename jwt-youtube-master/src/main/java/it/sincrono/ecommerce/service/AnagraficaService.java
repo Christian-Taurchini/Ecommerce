@@ -3,9 +3,12 @@ package it.sincrono.ecommerce.service;
 import java.util.ArrayList;
 import java.util.List;
 
+import org.springframework.stereotype.Service;
+
 import it.sincrono.ecommerce.entity.Anagrafica;
 import it.sincrono.ecommerce.repository.AnagraficaRepository;
 
+@Service
 public class AnagraficaService {
 	
 	AnagraficaRepository anagraficaRepository;
