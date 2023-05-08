@@ -42,11 +42,16 @@ public class WebSecurityConfiguration extends WebSecurityConfigurerAdapter {
     protected void configure(HttpSecurity httpSecurity) throws Exception {
         httpSecurity.cors(withDefaults());
         httpSecurity.csrf().disable()
-                .authorizeRequests().antMatchers("/login",
+                .authorizeRequests().antMatchers(
+                		"/login",
                 		"/registrazione",
                 		"/nuova/categoria",
                 		"/nuovo/modello",
-                		"/nuovo/cambio"
+                		"/nuovo/cambio",
+                		"/nuova/trazione",
+                		"/nuova/automobile",
+                		"/nuovo/motore",
+                		"/nuova/anagrafica"
                 		).permitAll()
                 .antMatchers(HttpHeaders.ALLOW).permitAll()
                 .anyRequest().authenticated()
