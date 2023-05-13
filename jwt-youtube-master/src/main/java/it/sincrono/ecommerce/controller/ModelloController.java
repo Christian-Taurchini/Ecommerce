@@ -30,7 +30,7 @@ public class ModelloController {
 	}  
 	
 	@GetMapping("/modello/{idModello}")  
-	private Modello getCategoria(@PathVariable("idModello") Integer idModello)   
+	private Modello getModello(@PathVariable("idModello") Integer idModello)   
 	{  
 	return modelloService.getModelloById(idModello);  
 	}

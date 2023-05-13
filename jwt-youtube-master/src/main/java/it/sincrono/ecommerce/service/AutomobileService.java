@@ -1,32 +1,40 @@
 package it.sincrono.ecommerce.service;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import org.springframework.stereotype.Service;
 
 import it.sincrono.ecommerce.entity.Automobile;
+import it.sincrono.ecommerce.repository.AutomobileRepository;
 
 @Service
 public class AutomobileService {
 
+	AutomobileRepository automobileRepository;
+	
 	public List<Automobile> getAllAutomobili() {
-		// TODO Auto-generated method stub
-		return null;
-	}
+		List<Automobile> automobile = new ArrayList<Automobile>();  
+		automobileRepository.findAll().forEach(automobili -> automobile.add(automobili));  
+		return automobile; 
+		}
 
 	public Automobile getAutomobileById(Integer idAutomobile) {
-		// TODO Auto-generated method stub
-		return null;
+		return automobileRepository.findById(idAutomobile).get(); 
 	}
 
 	public void delete(Integer idAutomobile) {
-		// TODO Auto-generated method stub
+		automobileRepository.deleteById(idAutomobile);
 		
 	}
 
 	public void saveOrUpdate(Automobile automobile) {
-		// TODO Auto-generated method stub
-		
+		automobileRepository.save(automobile); 
 	}
 
+	public void update(Automobile automobile, Integer idAutomobile)   
+	{  
+		automobileRepository.save(automobile);  
+	} 
+	
 }
