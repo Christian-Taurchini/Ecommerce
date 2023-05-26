@@ -33,7 +33,7 @@ public class UserService {
 
         Role userRole = new Role();
         userRole.setNomeRuolo("Utente");
-        userRole.setDescrizioneRuolo("Utente creato di e assegnato di default");
+        userRole.setDescrizioneRuolo("Utente creato e assegnato di default");
         roleRepository.save(userRole);
 
         User adminUser = new User();
